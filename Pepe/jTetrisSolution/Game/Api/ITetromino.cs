@@ -8,7 +8,7 @@ namespace Game.Api
 
         void Rotate();
 
-        void Translate();
+        void Translate(int x, int y);
 
         ISet<ITetromino> Delete();
 
