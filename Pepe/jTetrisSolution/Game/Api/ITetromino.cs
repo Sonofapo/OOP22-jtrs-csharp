@@ -10,7 +10,7 @@ namespace Game.Api
 
         void Translate(int x, int y);
 
-        ISet<ITetromino> Delete();
+        ISet<ITetromino> Delete(int position);
 
         ITetromino Copy();
     }
