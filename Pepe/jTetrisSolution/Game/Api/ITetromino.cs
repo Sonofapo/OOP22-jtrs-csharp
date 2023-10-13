@@ -12,6 +12,6 @@ namespace Game.Api
 
         ISet<ITetromino> Delete();
 
-        void Copy();
+        ITetromino Copy();
     }
 }
