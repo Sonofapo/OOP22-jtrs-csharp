@@ -32,8 +32,8 @@ namespace Test
         }
 
         [TestMethod]
-        public void TestDelete() {
-
+        public void TestDelete()
+        {
             var tTetromino = new Tetromino(new HashSet<Pair<int, int>>(TetrominoData.T_COORD), 0, 0);
 
             var t1 = new Tetromino(new HashSet<Pair<int, int>>() { new(0, 2) }, 0, 0);
