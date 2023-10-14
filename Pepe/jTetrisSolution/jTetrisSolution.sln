@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game", "Game\Game.csproj", "{7612375D-4BF0-4FF7-A850-7BBA1EE25182}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game", "Game\Game.csproj", "{90EFA888-6DFC-4179-AFCE-3FF87A9CF2DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{E06BAC52-DA96-4FC8-B63E-78CD294D68FA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{94BC320E-8E5C-495D-83C3-5823F6DE7D78}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,13 +16,13 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7612375D-4BF0-4FF7-A850-7BBA1EE25182}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7612375D-4BF0-4FF7-A850-7BBA1EE25182}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7612375D-4BF0-4FF7-A850-7BBA1EE25182}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7612375D-4BF0-4FF7-A850-7BBA1EE25182}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E06BAC52-DA96-4FC8-B63E-78CD294D68FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E06BAC52-DA96-4FC8-B63E-78CD294D68FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E06BAC52-DA96-4FC8-B63E-78CD294D68FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E06BAC52-DA96-4FC8-B63E-78CD294D68FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90EFA888-6DFC-4179-AFCE-3FF87A9CF2DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90EFA888-6DFC-4179-AFCE-3FF87A9CF2DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90EFA888-6DFC-4179-AFCE-3FF87A9CF2DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90EFA888-6DFC-4179-AFCE-3FF87A9CF2DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94BC320E-8E5C-495D-83C3-5823F6DE7D78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94BC320E-8E5C-495D-83C3-5823F6DE7D78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94BC320E-8E5C-495D-83C3-5823F6DE7D78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94BC320E-8E5C-495D-83C3-5823F6DE7D78}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
