@@ -1,4 +1,3 @@
-#pragma warning disable CS8618
 using Game.Api;
 using Game.Utils;
 
@@ -20,7 +19,8 @@ namespace Game.Impl
 
         public Tetromino(ISet<Pair<int, int>> components, int x, int y)
         {
-            Components = new HashSet<Pair<int, int>>(components);
+            _components = new HashSet<Pair<int, int>>(components);
+            Components = _components;
             XPosition = x;
             YPosition = y;
             Center = EvaluateCenter();
