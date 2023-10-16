@@ -25,7 +25,15 @@ namespace Game.Impl
             return new Pair<double, double>(c, c);
         }   
 
-        public ISet<Pair<int, int>> Components { get; private set; }
+        public ISet<Pair<int, int>> Components
+        { get
+            {
+                return new HashSet<Pair<int, int>>(
+                    Components.Select(c => new Pair<int, int>(c.GetX + XPosition, c.GetY + YPosition)
+                )
+            };
+            private set;
+        }
 
         public ITetromino Copy()
         {
