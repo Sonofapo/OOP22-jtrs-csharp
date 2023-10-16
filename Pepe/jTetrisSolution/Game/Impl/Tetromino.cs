@@ -1,3 +1,4 @@
+#pragma warning disable CS8618
 using Game.Api;
 using Game.Utils;
 
@@ -8,6 +9,14 @@ namespace Game.Impl
         private int XPosition { get; set; }
         private int YPosition { get; set; }
         private Pair<double, double> Center { get; set; }
+        
+        private ISet<Pair<int, int>> _components;
+        public ISet<Pair<int, int>> Components
+        {
+            get => new HashSet<Pair<int, int>>(
+                    _components.Select(c => new Pair<int, int>(c.GetX + XPosition, c.GetY + YPosition)));
+            private set => _components = value;
+        }
 
         public Tetromino(ISet<Pair<int, int>> components, int x, int y)
         {
@@ -24,17 +33,6 @@ namespace Game.Impl
                 .Concat(Components.Select(e => e.GetY)).Max() / 2.0;
             return new Pair<double, double>(c, c);
         }   
-
-        public ISet<Pair<int, int>> Components
-        {
-            get
-            {
-                return new HashSet<Pair<int, int>>(
-                    Components.Select(c => new Pair<int, int>(c.GetX + XPosition, c.GetY + YPosition)
-                )
-            };
-            private set;
-        }
 
         public ITetromino Copy()
         {
