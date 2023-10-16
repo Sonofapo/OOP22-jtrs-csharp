@@ -26,7 +26,8 @@ namespace Game.Impl
         }   
 
         public ISet<Pair<int, int>> Components
-        { get
+        {
+            get
             {
                 return new HashSet<Pair<int, int>>(
                     Components.Select(c => new Pair<int, int>(c.GetX + XPosition, c.GetY + YPosition)
