@@ -41,15 +41,6 @@ namespace Game.Impl
 
         public ISet<ITetromino> Delete(int position)
         {
-            /*
-            if (this.compontents.stream().anyMatch(c -> c.getX() + this.xPosition == position)) {
-            return this.compontents.stream()
-                .filter(c -> c.getX() + this.xPosition != position)
-                .map(c -> new TetrominoImpl(Set.of(c), this.xPosition, this.yPosition, this.color))
-                .collect(Collectors.toCollection(HashSet::new));
-            }
-            return new HashSet<>(Set.of(this));
-            */
             if (_components.Any(c => c.GetX + XPosition == position))
             {
                 return new HashSet<ITetromino>(_components
