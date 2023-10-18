@@ -30,20 +30,29 @@ namespace Game.Impl
         {
             double c = Components
                 .Select(e => e.GetX)
-                .Concat(Components.Select(e => e.GetY)).Max() / 2.0;
+                .Concat(_components.Select(e => e.GetY)).Max() / 2.0;
             return new Pair<double, double>(c, c);
         }   
 
         public ITetromino Copy()
         {
-            return new Tetromino(Components, XPosition, YPosition);
+            return new Tetromino(_components, XPosition, YPosition);
         }
 
         public ISet<ITetromino> Delete(int position)
         {
-            if (Components.Any(c => c.GetX + XPosition == position))
+            /*
+            if (this.compontents.stream().anyMatch(c -> c.getX() + this.xPosition == position)) {
+            return this.compontents.stream()
+                .filter(c -> c.getX() + this.xPosition != position)
+                .map(c -> new TetrominoImpl(Set.of(c), this.xPosition, this.yPosition, this.color))
+                .collect(Collectors.toCollection(HashSet::new));
+            }
+            return new HashSet<>(Set.of(this));
+            */
+            if (_components.Any(c => c.GetX + XPosition == position))
             {
-                return new HashSet<ITetromino>(Components
+                return new HashSet<ITetromino>(_components
                     .Where(c => c.GetX + XPosition != position)
                     .Select(c => new Tetromino(new HashSet<Pair<int, int>> { c }, XPosition, YPosition)));
 
@@ -54,7 +63,7 @@ namespace Game.Impl
         public void Rotate()
         {
             Components = new HashSet<Pair<int, int>>(
-                Components.Select(c => new Pair<int, int>(
+                _components.Select(c => new Pair<int, int>(
                     (int) (c.GetY - Center.GetY + Center.GetX),
                     (int) (Center.GetX - c.GetX + Center.GetY))
                 )
