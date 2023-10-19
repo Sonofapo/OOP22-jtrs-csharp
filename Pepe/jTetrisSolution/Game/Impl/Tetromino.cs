@@ -12,8 +12,8 @@ namespace Game.Impl
         private ISet<Pair<int, int>> _components;
         public ISet<Pair<int, int>> Components
         {
-            get => new HashSet<Pair<int, int>>(
-                    _components.Select(c => new Pair<int, int>(c.GetX + XPosition, c.GetY + YPosition)));
+            get => _components
+                .Select(c => new Pair<int, int>(c.GetX + XPosition, c.GetY + YPosition)).ToHashSet();
             private set => _components = value;
         }
 
@@ -31,7 +31,7 @@ namespace Game.Impl
             double c = Components
                 .Select(e => e.GetX)
                 .Concat(_components.Select(e => e.GetY)).Max() / 2.0;
-            return new Pair<double, double>(c, c);
+            return new(c, c);
         }   
 
         public ITetromino Copy()
@@ -43,9 +43,11 @@ namespace Game.Impl
         {
             if (_components.Any(c => c.GetX + XPosition == position))
             {
-                return new HashSet<ITetromino>(_components
+                return _components
                     .Where(c => c.GetX + XPosition != position)
-                    .Select(c => new Tetromino(new HashSet<Pair<int, int>> { c }, XPosition, YPosition)));
+                    .Select(c => new Tetromino(new HashSet<Pair<int, int>> { c },
+                        XPosition, YPosition) as ITetromino)
+                    .ToHashSet();
 
             }
             return new HashSet<ITetromino> { this };
@@ -53,12 +55,10 @@ namespace Game.Impl
 
         public void Rotate()
         {
-            Components = new HashSet<Pair<int, int>>(
-                _components.Select(c => new Pair<int, int>(
-                    (int) (c.GetY - Center.GetY + Center.GetX),
-                    (int) (Center.GetX - c.GetX + Center.GetY))
-                )
-            );
+            Components = _components.Select(c => new Pair<int, int>(
+                (int) (c.GetY - Center.GetY + Center.GetX),
+                (int) (Center.GetX - c.GetX + Center.GetY))
+            ).ToHashSet();
         }
 
         public void Translate(int x, int y)
