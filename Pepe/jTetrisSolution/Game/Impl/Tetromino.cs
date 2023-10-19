@@ -19,7 +19,7 @@ namespace Game.Impl
 
         public Tetromino(ISet<Pair<int, int>> components, int x, int y)
         {
-            _components = new HashSet<Pair<int, int>>(components);
+            _components = components.ToHashSet();
             Components = _components;
             XPosition = x;
             YPosition = y;
