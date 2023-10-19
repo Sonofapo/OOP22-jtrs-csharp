@@ -28,7 +28,7 @@ namespace Game.Impl
 
         private Pair<double, double> EvaluateCenter()
         {
-            double c = Components
+            double c = _components
                 .Select(e => e.GetX)
                 .Concat(_components.Select(e => e.GetY)).Max() / 2.0;
             return new(c, c);
