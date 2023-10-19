@@ -32,6 +32,19 @@ namespace Test
         }
 
         [TestMethod]
+        public void TestTranslate()
+        {
+            var tTetromino = new Tetromino(new HashSet<Pair<int, int>>(TetrominoData.T_COORD), 0, 0);
+            var x = 10;
+            var y = 15;
+
+            tTetromino.Translate(x, y);
+            CollectionAssert.AreEquivalent(
+                TetrominoData.T_COORD.Select(c => new Pair<int, int>(c.GetX + x, c.GetY + y)).ToList(),
+                tTetromino.Components.ToList());
+        }
+
+        [TestMethod]
         public void TestDelete()
         {
             var tTetromino = new Tetromino(new HashSet<Pair<int, int>>(TetrominoData.T_COORD), 0, 0);
