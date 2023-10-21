@@ -3,11 +3,11 @@ using Game.Utils;
 
 namespace Game.Impl
 {
-    public class TetrominoFacotry : ITetrominoFactory
+    public class TetrominoFactory : ITetrominoFactory
     {
-        private List<ITetromino> _bag { get; set; }
+        private List<ITetromino> _bag;
 
-        public TetrominoFacotry()
+        public TetrominoFactory()
         {
             _bag = Initialize();
         }
@@ -16,13 +16,13 @@ namespace Game.Impl
         {
             return new()
             {
-                new Tetromino(TetrominoData.O_COORD, 0, 0),
-                new Tetromino(TetrominoData.L_COORD, 0, 0),
-                new Tetromino(TetrominoData.J_COORD, 0, 0),
-                new Tetromino(TetrominoData.I_COORD, 0, 0),
-                new Tetromino(TetrominoData.T_COORD, 0, 0),
-                new Tetromino(TetrominoData.Z_COORD, 0, 0),
-                new Tetromino(TetrominoData.S_COORD, 0, 0)
+                new Tetromino(TetrominoData.CoordO, 0, 0),
+                new Tetromino(TetrominoData.CoordL, 0, 0),
+                new Tetromino(TetrominoData.CoordJ, 0, 0),
+                new Tetromino(TetrominoData.CoordI, 0, 0),
+                new Tetromino(TetrominoData.CoordT, 0, 0),
+                new Tetromino(TetrominoData.CoordZ, 0, 0),
+                new Tetromino(TetrominoData.CoordS, 0, 0)
             };
         }
 

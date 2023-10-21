@@ -1,6 +1,8 @@
 using Game.Api;
 using Game.Impl;
 
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 namespace Test
 {
     [TestClass]
@@ -8,7 +10,7 @@ namespace Test
     {
         private const int DifferentTetrominoes = 7;
 
-        private readonly TetrominoFacotry _factory = new();
+        private readonly TetrominoFactory _factory = new();
 
         [TestMethod]
         public void TestFactoryGeneration()

@@ -1,6 +1,9 @@
-using System.Collections.ObjectModel;
 using Game.Impl;
 using Game.Utils;
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+using System.Collections.ObjectModel;
 
 namespace Test
 {
@@ -10,7 +13,7 @@ namespace Test
         [TestMethod]
         public void TestRotate()
         {
-            var tTetromino = new Tetromino(new HashSet<Pair<int, int>>(TetrominoData.T_COORD), 0, 0);
+            var tTetromino = new Tetromino(new HashSet<Pair<int, int>>(TetrominoData.CoordT), 0, 0);
 
             tTetromino.Rotate();
             CollectionAssert.AreEquivalent(
@@ -28,26 +31,26 @@ namespace Test
                 tTetromino.Components.ToList());
 
             tTetromino.Rotate();
-            CollectionAssert.AreEquivalent(TetrominoData.T_COORD.ToList(), tTetromino.Components.ToList());
+            CollectionAssert.AreEquivalent(TetrominoData.CoordT.ToList(), tTetromino.Components.ToList());
         }
 
         [TestMethod]
         public void TestTranslate()
         {
-            var tTetromino = new Tetromino(new HashSet<Pair<int, int>>(TetrominoData.T_COORD), 0, 0);
+            var tTetromino = new Tetromino(new HashSet<Pair<int, int>>(TetrominoData.CoordT), 0, 0);
             var x = 10;
             var y = 15;
 
             tTetromino.Translate(x, y);
             CollectionAssert.AreEquivalent(
-                TetrominoData.T_COORD.Select(c => new Pair<int, int>(c.GetX + x, c.GetY + y)).ToList(),
+                TetrominoData.CoordT.Select(c => new Pair<int, int>(c.GetX + x, c.GetY + y)).ToList(),
                 tTetromino.Components.ToList());
         }
 
         [TestMethod]
         public void TestDelete()
         {
-            var tTetromino = new Tetromino(new HashSet<Pair<int, int>>(TetrominoData.T_COORD), 0, 0);
+            var tTetromino = new Tetromino(new HashSet<Pair<int, int>>(TetrominoData.CoordT), 0, 0);
 
             var t1 = new Tetromino(new HashSet<Pair<int, int>>() { new(0, 2) }, 0, 0);
             var t2 = new Tetromino(new HashSet<Pair<int, int>>() { new(2, 2) }, 0, 0);
