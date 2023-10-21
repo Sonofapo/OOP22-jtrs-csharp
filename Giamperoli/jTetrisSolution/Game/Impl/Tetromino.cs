@@ -5,48 +5,48 @@ namespace Game.Impl
 {
     public class Tetromino : ITetromino
     {
-        private int XPosition { get; set; }
-        private int YPosition { get; set; }
-        private Pair<double, double> Center { get; set; }
-        
+        private int _xPosition;
+        private int _yPosition;
+        private readonly Pair<double, double> _center;
         private ISet<Pair<int, int>> _components;
+
         public ISet<Pair<int, int>> Components
         {
             get => _components
-                .Select(c => new Pair<int, int>(c.GetX + XPosition, c.GetY + YPosition)).ToHashSet();
-            private set => _components = value;
+                .Select(c => new Pair<int, int>(c.GetX + _xPosition, c.GetY + _yPosition))
+                .ToHashSet();
         }
 
         public Tetromino(ISet<Pair<int, int>> components, int x, int y)
         {
             _components = components.ToHashSet();
-            Components = _components;
-            XPosition = x;
-            YPosition = y;
-            Center = EvaluateCenter();
+            _xPosition = x;
+            _yPosition = y;
+            _center = EvaluateCenter();
         }
 
         private Pair<double, double> EvaluateCenter()
         {
             double c = _components
                 .Select(e => e.GetX)
-                .Concat(_components.Select(e => e.GetY)).Max() / 2.0;
+                .Concat(_components.Select(e => e.GetY))
+                .Max() / 2.0;
             return new(c, c);
-        }   
+        }
 
         public ITetromino Copy()
         {
-            return new Tetromino(_components, XPosition, YPosition);
+            return new Tetromino(_components, _xPosition, _yPosition);
         }
 
         public ISet<ITetromino> Delete(int position)
         {
-            if (_components.Any(c => c.GetX + XPosition == position))
+            if (_components.Any(c => c.GetX + _xPosition == position))
             {
                 return _components
-                    .Where(c => c.GetX + XPosition != position)
+                    .Where(c => c.GetX + _xPosition != position)
                     .Select(c => new Tetromino(new HashSet<Pair<int, int>> { c },
-                        XPosition, YPosition) as ITetromino)
+                        _xPosition, _yPosition) as ITetromino)
                     .ToHashSet();
 
             }
@@ -55,26 +55,16 @@ namespace Game.Impl
 
         public void Rotate()
         {
-            Components = _components.Select(c => new Pair<int, int>(
-                (int) (c.GetY - Center.GetY + Center.GetX),
-                (int) (Center.GetX - c.GetX + Center.GetY))
+            _components = _components.Select(c => new Pair<int, int>(
+                (int) (c.GetY - _center.GetY + _center.GetX),
+                (int) (_center.GetX - c.GetX + _center.GetY))
             ).ToHashSet();
         }
 
         public void Translate(int x, int y)
         {
-            XPosition += x;
-            YPosition += y;
-        }
-
-        public override string ToString()
-        {
-            var s = "";
-            foreach (var item in Components)
-            {
-                s += item.ToString();
-            }
-            return s;
+            _xPosition += x;
+            _yPosition += y;
         }
     }
 }

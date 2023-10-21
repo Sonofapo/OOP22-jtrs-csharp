@@ -2,30 +2,30 @@
 {
     public interface IGameModel
     {
-        enum GameState
+        public enum GameState
         {
-            START,
-            RUNNING,
-            PAUSE,
-            OVER
+            Start,
+            Running,
+            Pause,
+            Over
         }
 
-        enum Interaction
+        public enum Interaction
         {
-            DOWN,
-            LEFT, 
-            RIGHT,
-            ROTATE
+            Down,
+            Left,
+            Right,
+            Rotate
         }
 
-        IList<ITetromino> Pieces { get; }
+        public IList<ITetromino> Pieces { get; }
 
-        bool NextPiece(ITetromino next);
+        public bool NextPiece(ITetromino next);
 
-        int DeleteRows();
+        public int DeleteRows();
 
-        bool Advance(Interaction i);
+        public bool Advance(Interaction i);
 
-        ISet<int> DeletedLines { get; }
+        public ISet<int> DeletedLines { get; }
     }
 }

@@ -4,14 +4,14 @@ namespace Game.Api
 {
     public interface ITetromino
     {
-        ISet<Pair<int, int>> Components { get; }
+        public ISet<Pair<int, int>> Components { get; }
 
-        void Rotate();
+        public void Rotate();
 
-        void Translate(int x, int y);
+        public void Translate(int x, int y);
 
-        ISet<ITetromino> Delete(int position);
+        public ISet<ITetromino> Delete(int position);
 
-        ITetromino Copy();
+        public ITetromino Copy();
     }
 }

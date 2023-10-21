@@ -23,7 +23,7 @@ namespace Game.Utils
 
         public override bool Equals(object? obj)
         {
-            return obj is Pair<X, Y> pair && 
+            return obj is Pair<X, Y> pair &&
                 EqualityComparer<X>.Default.Equals(GetX, pair.GetX) &&
                 EqualityComparer<Y>.Default.Equals(GetY, pair.GetY);
         }
